@@ -20,6 +20,7 @@ steps:
     command: |
       cd pythonfn/
       fn build -v
+      image=$(docker images | grep pythonfn | awk -F ' ' '{print $3}') ; docker tag $image
 
 outputArtifacts:
   - name: output01
